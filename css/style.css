@@ -1,0 +1,209 @@
+@font-face {
+    font-family: 'Nunito Sans';
+    src: url('../fonts/NunitoSans-Variable.woff2') format('woff2-variations');
+    src: url('../fonts/NunitoSans-Variable.woff2') format('woff2') tech('variations');
+    font-weight: 300 700;
+}
+
+@font-face {
+    font-family: 'WorkSans-Light';
+    src: url('../fonts/WorkSans-Light.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'WorkSans-Regular';
+    src: url('../fonts/WorkSans-Regular.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'WorkSans-Medium';
+    src: url('../fonts/WorkSans-Medium.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'WorkSans-SemiBold';
+    src: url('../fonts/WorkSans-SemiBold.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+}
+
+body {
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.35;
+    color: #0E0D0D;
+    background-color: #fdfdfd;
+}
+
+.header {
+
+}
+.container-big {
+    max-width: 1820px;
+    padding: 0 10px;
+    margin: 0 auto;
+    
+    
+}
+.container {
+    max-width: 1440px;
+    padding: 0 10px;
+    margin: 0 auto;
+    
+}
+
+.header__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 0;
+    font-weight: 500;
+}
+.logo {
+
+}
+.menu {
+
+}
+.menu__list {
+    display: flex;
+    gap: 0 30px;
+}
+.menu__item {
+
+}
+
+.menu__link {
+    text-transform: uppercase;
+}
+
+.link {
+
+}
+.header__contacts {
+    text-transform: uppercase;
+    padding: 10px 40px;
+    display: inline-block;
+    background-color: #0E0D0D;
+    color: #FFFFFF;
+    border-radius: 50px;
+}
+
+
+.main {
+}
+.about {
+    margin-bottom: 180px;
+}
+
+.about__top {
+    text-align: center;
+    color: #FDFDF0;
+    background-image: url('../img/about-bg.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    text-transform: uppercase;
+    min-height: 748px;
+    border-radius: 30px;
+}
+.about__title {
+    font-family: 'WorkSans-SemiBold', sans-serif;
+    padding-top: 85px;
+    font-weight: 600;
+    font-size: 250px;
+    line-height: 0.9;
+    margin-bottom: 20px;
+
+}
+.about__text {
+    font-family: 'WorkSans-Medium', sans-serif;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 1.2;
+}
+
+
+.about__achievments {
+    display: flex;
+    justify-content: space-between;
+    margin-top: -55px;
+    margin-bottom: 90px;
+}
+.about__achievment {
+    border-radius: 20px;
+    background-color: #F4F4F4;
+    max-width: 580px;
+    padding: 14px 10px;
+    display: flex;
+    gap: 0 25px;
+
+}
+.about__achievment-imgbox {
+    min-width: 214px;
+    position: relative;
+}
+.about__achievment-img {
+}
+.about__achivement-arrow {
+    border: none;
+    padding: 0;
+    background: transparent;
+    position: absolute;
+    top: 5px;
+    right: 0px;
+}
+.about__achivement-content {
+}
+.about__achivement-title {
+    margin-bottom: 20px;
+    font-weight: 500;
+    padding-top: 10px;
+}
+.about__achivement-text {
+    font-family: 'WorkSans-Light', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+}
+
+.text--bold {
+    font-weight: 600;
+}
+
+.text--color {
+    font-weight: 600;
+    color: #F2A531;
+}
+.about__stats {
+    border-radius: 20px;
+    background-color: #F4F4F4;
+    margin-bottom: 70px;
+    display: flex;
+    padding: 30px 18px;
+    justify-content: space-between;
+    gap: 90px;
+}
+.about__stats-item {
+    text-align: center;
+    width: 280px;
+
+}
+.about__stats-item dt {
+    font-family: 'WorkSans-SemiBold';
+    font-weight: 600;
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+.about__stats-item dd {
+    margin: 0;
+    color: #000000;
+    font-size: 22px;
+    opacity: .7;
+}
