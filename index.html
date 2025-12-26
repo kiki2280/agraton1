@@ -10,13 +10,20 @@
     
 </head>
 <body>
-    <header class="header">
+    <!-- HEADER -->
+ <header class="header ">
         <div class="container">
             <div class="header__inner">
                 <a href="/" class="logo">
                     <img src="./img/Logo.svg" alt="">
                 </a>
                 <nav class="menu">
+                    <button class="menu__btn" type="button">
+                        <span class="menu__btn-line"></span>
+                        <span class="menu__btn-line"></span>
+                        <span class="menu__btn-line"></span>
+                    </button>
+
                     <ul class="menu__list">
                         <li class="menu__item">
                             <a href="#" class="menu__link">About company</a>
@@ -38,10 +45,11 @@
                 <a href="#" class="header__contacts">Contact us</a>
             </div>
         </div>
-    </header>
+    </header> 
 
     <main class="main">
-    <section class="about">
+    <!-- ABOUT SECTION -->
+    <section class="about ">
         <div class="container-big">
             <div class="about__top">
                 <h1 class="about__title">Agroton</h1>
@@ -119,50 +127,292 @@
                 </div>
             </dl>
             <p class="about__progress-text">
-                Agroton is the largest diversified vertically integrated agricultural producer 
+                <span>Agroton is the largest diversified vertically</span> integrated agricultural producer 
                 in Eastern Ukraine. Agroton is a regional leader in the cultivation of agricultural crops, livestock farming
             </p>
             <div class="about__progress-box">
                 <img src="./img/about-img.png" alt="" class="about__progress-img">
                 <div class="about__progress-tadalebox">
                     <p class="about__progress-boxtext">
-                        Agroton is 30 years of leadership in the agricultural sector. We cultivate 200,000+ 
-                        hectares of land, supply the market with quality products and export 
-                        to 10+ countries. Our mission is to develop agriculture, introduce 
+                        Agroton is <span class="text--color"> 30 years</span> of leadership in the agricultural sector. We cultivate<span class="text--color"> 200,000+ 
+                        hectares of land</span>, supply the market with quality products and export 
+                        <span class="text--color">to 10+ countries</span>. <span class="text--bold"> Our mission</span> is to develop agriculture, introduce 
                         innovations and provide people with natural products.
                     </p>
                     <dl class="about__progress-tadale">
                         <div class="about__progress-item">
-                            <dt>№1</dt>
-                            <dd>in sunflower production in Ukraine</dd>
+                            <dt><span>№1</span> in sunflower production in Ukraine</dt>
+                            <dd>48,000 hectares of sown areas.</dd>
                         </div>
                         <div class="about__progress-item">
-                            <dt>№2</dt>
-                            <dd>in wheat production</dd>
+                            <dt><span>№4</span> in wheat production</dt>
+                            <dd>50,000 hectares of fields.</dd>
                         </div>
                         <div class="about__progress-item">
-                            <dt>№3</dt>
-                            <dd> in grain elevator capacity in Luhansk region</dd>
+                            <dt><span>№1</span> in grain elevator capacity in Luhansk region</dt>
+                            <dd> 235,000 tons of storage.</dd>
                         </div>
                         <div class="about__progress-item">
-                            <dt>№4</dt>
-                            <dd>in poultry production in Luhansk region</dd>
+                            <dt><span>№1</span> in poultry production in Luhansk region</dt>
+                            <dd>4,000,000 chickens.</dd>
                         </div>
                         <div class="about__progress-item">
-                            <dt>№5</dt>
-                            <dd>in milk production in Ukraine</dd>
+                            <dt><span>№5</span> in milk production in Ukraine</dt>
+                            <dd>4,500 dairy cattle.</dd>
                         </div>
                         <div class="about__progress-item">
-                            <dt>№6</dt>
-                            <dd>in bakery production in Luhansk</dd>
+                            <dt><span>№2</span> in bakery production in Luhansk</dt>
+                            <dd>7,000 tons of products per year.</dd>
                         </div>
+                    </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTS SECTION -->
+    <section class="products ">
+        <div class="container-big">
+            <div class="products__wrapper">
+                <div class="container">
+                    <div class="products__inner">
+                        <h2 class="product__title">
+                            High quality agricultural products
+                        </h2>
+                        <div class="products__list">
+                            <a class="product__item" href="#" style="background-image:url(./img/products/prod1.jpg) ;">
+                                <h3 class="product__item-title">🌾 Cereal crops</h3>
+                                <p class="product__item-text">(wheat, barley, corn)</p>
+                                <button class="products__item-btn">
+                                    <img src="./img/grey__arrow.svg" alt="">
+                                </button>
+                            </a>
+                            <a class="product__item" href="#"  style="background-image:url(./img/products/prod2.jpg) ;">
+                                <h3 class="product__item-title">🌻 Oilseeds</h3>
+                                <p class="product__item-text">(sunflower, rapeseed, soybean)</p>
+                                <button class="products__item-btn">
+                                    <img src="./img/grey__arrow.svg" alt="">
+                                </button>
+                            </a>
+                            <a class="product__item" href="#" style="background-image:url(./img/products/prod3.jpg) ;">
+                                <h3 class="product__item-title">🥛 Dairy products</h3>
+                                <p class="product__item-text">(milk, dairy products)</p>
+                                <button class="products__item-btn">
+                                    <img src="./img/grey__arrow.svg" alt="">
+                                </button>
+                            </a>
+                            <a class="product__item" href="#" style="background-image:url(./img/products/prod4.jpg) ;">
+                                <h3 class="product__item-title">🍞 Bakery products</h3>
+                                <p class="product__item-text">(bread, pastries)</p>
+                                <button class="products__item-btn">
+                                    <img src="./img/grey__arrow.svg" alt="">
+                                </button>
+                            </a>
+                            <a class="product__item" href="#" style="background-image:url(./img/products/prod5.jpg) ;">
+                                <h3 class="product__item-title">🐔 Poultry farming</h3>
+                                <p class="product__item-text">(chicken, eggs)</p>
+                                <button class="products__item-btn">
+                                    <img src="./img/grey__arrow.svg" alt="">
+                                </button>
+                            </a>
+                            <a class="product__item" href="#" style="background-image:url(./img/products/prod6.jpg) ;">
+                                <h3 class="product__item-title">🍏 Vegetables and fruits</h3>
+                                <p class="product__item-text">(if available in production)</p>
+                                <button class="products__item-btn">
+                                    <img src="./img/grey__arrow.svg" alt="">
+                                </button>
+                            </a>
+                        </div>
+                        <a href="#" class="products__link button">
+                            See catalog
+                            <svg width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="27" cy="27" r="27" fill="white"/>
+                            <path d="M35 22V32M35 22H25M35 22L25 32" stroke="black" stroke-width="1.5"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    <!-- slogan -->
+    <div class="slogan">
+        <div class="container">
+            <p class="slogan__text">Impressive scale. Convincing quality.</p>
+            <p class="slogan__title">Agroton</p>
+        </div>
+        <img class="slogan__img" src="./img/products/slogan.png" alt="">
+    </div>
+    <!-- partners -->
+    <div class="partners ">
+        <div class="container">
+            <div class="partners__inner">
+                <div class="partners__info">
+                    <h3 class="partners__info-title">Agroton is a reliable supplier of agricultural products</h3>
+                    <p class="partners__info-text">
+                        We cooperate with processors, distributors and retail chains, ensuring stable supplies and high quality standards.
+                    </p>
+                    <a href="#" class="button">
+                        Contact us
+                        <svg width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="27" cy="27" r="27" fill="white"/>
+                        <path d="M35 22V32M35 22H25M35 22L25 32" stroke="black" stroke-width="1.5"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="partners__box">
+                    <div class="partners__box-top">
+                    <ul class="partners__box-list">
+                        <li class="partners__box-item">
+                            <span >Direct deliveries</span> of products from the manufacturer
+                        </li>
+                        <li class="partners__box-item">
+                            <span >Guaranteed</span> traceability and certification
+                        </li>
+                        <li class="partners__box-item">
+                            <span >Individual</span> approach to each partner
+                        </li>
+                    </ul>
+                        <img src="./img/products/partners1.jpg" alt="">
+                    </div>
+                    <p class="partners__box-text">
+                        <span class="text--color">We value </span>long-term relationships and are open to new opportunities for cooperation!
+                    </p>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    <section class="blog ">
+        <div class="container-big">
+            <div class="blog__wrapper">
+                <div class="container">
+                    <h2 class="blog__title">Recent blog posts</h2>
+                    <div class="blog__items">
+                        <div class="blog__item-big">
+                            <div class="blog__item-box">
+                            </div>
+                            <img src="./img/blog/img1.jpg" alt="" class="blog__item-img">
+                            <div class="blog__item-info">
+                                <a href="#">Agroton</a> • 20 Jan 2025
+                            </div>
+                            <a href="#" class="blog__item-titlelink">
+                                <h4 class="blog__item-title">Agroton expands sown areas</h4>
+                            </a>
+                            <p class="blog__item-text">
+                                This year we increased sown areas by 10%, which will allow us to increase the production of grain and oilseed crops.
+                            </p>
+                        </div>
+                        <div class="blog__item-small">
+                            <img src="./img/blog/img2.jpg" alt="" class="blog__item-img">
+                            <div class="blog__item-box">
+                                <div class="blog__item-info">
+                                <a href="#">Agroton</a> • 20 Jan 2025
+                            </div>
+                            <a href="#" class="blog__item-titlelink">
+                                <h4 class="blog__item-title">Export to a new country!</h4>
+                            </a>
+                            <p class="blog__item-text">
+                                We entered the market of [country name] and expanded the geography of supplies of quality Ukrainian products.
+                            </p>
+                            </div>
+                            
+                        </div>
+                        <div class="blog__item-small">
+                            <img src="./img/blog/img3.png" alt="" class="blog__item-img">
+                            <div class="blog__item-box">
+                                <div class="blog__item-info">
+                                <a href="#">Agroton</a> • 20 Jan 2025
+                            </div>
+                            <a href="#" class="blog__item-titlelink">
+                                <h4 class="blog__item-title">Modern technologies in livestock farming</h4>
+                            </a>
+                            <p class="blog__item-text">
+                                Agroton has implemented innovative systems for feeding and caring for livestock, which improves product quality.
+                            </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 </main>
+<footer class="footer">
+    <div class="container">
+        <div class="footer__top">
+            <a href="#" class="footer__logo">
+                <img src="./img/Logo-black.png" alt="">
+            </a>
+            <div class="footer__element">
+                <p class="footer__element-title">Navigation</p>
+                <ul class="footer__list">
+                    <li class="footer__item">
+                        <a href="#" class="footer__link">About company</a>
+                    </li>
+                    <li class="footer__item">
+                        <a href="#" class="footer__link">Products</a>
+                    </li>
+                    <li class="footer__item">
+                        <a href="#" class="footer__link">Partners</a>
+                    </li>
+                    <li class="footer__item">
+                        <a href="#" class="footer__link">Blog</a>
+                    </li>
+                    <li class="footer__item">
+                        <a href="#" class="footer__link">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer__element">
+                <p class="footer__element-title">Information</p>
+                <ul class="footer__list">
+                    <li class="footer__item">
+                        <a href="#" class="footer__link">Customer Support</a>
+                    </li>
+                    <li class="footer__item">
+                        <a href="#" class="footer__link">Delivery Details</a>
+                    </li>
+                    <li class="footer__item">
+                        <a href="#" class="footer__link">Terms of cooperation</a>
+                    </li>
+                    <li class="footer__item">
+                        <a href="#" class="footer__link">Guarantees</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer__element">
+                <p class="footer__element-title"></p>
+                <ul class="footer__list">
+                    <li class="footer__item">
+                        <address class="footer__item-address">Ukraine, Kyiv, ul. Ilyinskaya 8</address>
+                    </li>
+                    <li class="footer__item">
+                        <a href="mailto:au.gl.notorga@ofni" class="footer__link">au.gl.notorga@ofni</a>
+                    </li>
+                    <li class="footer__item">
+                        <a href="tel:+380982563265" class="footer__link">+380 98 256 32 65 </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <ul class="footer__bottom">
+            <li class="footer__bottom-item">
+                <p class="footer__copy">2010 Agroton © All rights reserved.</p>
+            </li>
+            <li class="footer__bottom-item">
+                <a href="#">Privacy Policy</a>
+            </li>
+            <li class="footer__bottom-item">
+                <a href="#">Offer contract</a>
+            </li>
+
+        </ul>
+    </div>
+</footer>
 
 
-    <script src="./app.js"></script>
+    <script src="./js/main.js"></script>
 </body>
-</html>
+</html>    
