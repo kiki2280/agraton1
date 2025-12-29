@@ -226,7 +226,7 @@ if (productsSection) {
                     setTimeout(() => {
                         item.classList.add('show');
                     }, delay);
-                    delay += 250;
+                    delay += 100;
                 });
 
                 productsObserver.disconnect();
