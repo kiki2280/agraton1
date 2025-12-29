@@ -951,7 +951,7 @@ body {
     flex-direction: column;
     justify-content: center;
     gap: 8px;
-    width: 40px;
+    width: 26px;
     height: 40px;
     padding: 0;
     border: none;
@@ -1199,18 +1199,12 @@ body {
         order: 2;
         margin-left: auto;
         white-space: nowrap;
-    }
-
-    .menu {
-        order: 3;
-    }
-    .header__contacts {
-        margin-left: auto;
-    }
-    .header__contacts {
-        padding: 6px 10px;
+        padding: 6px 6px;
         font-size: 14px;
         border-radius: 30px;
+    }
+    .menu {
+        order: 3;
     }
     .slogan__img {
     margin-top: -26px;

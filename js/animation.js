@@ -1,261 +1,191 @@
+/* ============================= */
+/* GLOBAL OBSERVER HELPER */
+/* ============================= */
+
+function observeOnce(element, callback, options = {}) {
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+        ([entry]) => {
+            if (entry.intersectionRatio >= (options.ratio ?? 0.25)) {
+                callback();
+                observer.disconnect();
+            }
+        },
+        {
+            threshold: options.threshold ?? [0.25],
+            rootMargin: options.rootMargin ?? '0px'
+        }
+    );
+
+    observer.observe(element);
+}
+
+/* ============================= */
+/* ABOUT — HERO */
+/* ============================= */
+
 const aboutSection = document.querySelector('.about');
 
-const observer = new IntersectionObserver(
-    ([entry]) => {
-        if (entry.isIntersecting) {
-            aboutSection.classList.add('animate');
-            observer.unobserve(aboutSection);
-        }
+observeOnce(
+    aboutSection,
+    () => {
+        aboutSection.classList.add('animate');
     },
-    {
-        threshold: 0.3
-    }
+    { ratio: 0.25 }
 );
 
-observer.observe(aboutSection);
+/* ============================= */
+/* ABOUT — STATS COUNTERS */
+/* ============================= */
 
-
-
-
+const statsSection = document.querySelector('.about__stats');
 const counters = document.querySelectorAll('.about__stats dt');
 
-const animateCounter = (el) => {
+function animateCounter(el) {
     const target = parseFloat(el.dataset.value);
-    const text = el.textContent.replace(/[0-9.,]/g, '').trim();
-    const duration = 3000;
-    const startTime = performance.now();
+    const suffix = el.textContent.replace(/[0-9.,]/g, '').trim();
+    const duration = 2500;
+    const start = performance.now();
 
-    const update = (time) => {
-        const progress = Math.min((time - startTime) / duration, 1);
+    function update(time) {
+        const progress = Math.min((time - start) / duration, 1);
         const value = target * progress;
 
         el.textContent =
             (target % 1 === 0 ? Math.floor(value) : value.toFixed(1)) +
-            (text ? ' ' + text : '');
+            (suffix ? ' ' + suffix : '');
 
-        if (progress < 1) {
-            requestAnimationFrame(update);
-        } else {
-            el.textContent = target + (text ? ' ' + text : '');
-        }
-    };
+        if (progress < 1) requestAnimationFrame(update);
+    }
 
     requestAnimationFrame(update);
-};
-const statsSection = document.querySelector('.about__stats');
+}
 
-const statsObserver = new IntersectionObserver(
-    ([entry]) => {
-        if (entry.isIntersecting) {
-            counters.forEach(animateCounter);
-            statsObserver.disconnect();
-        }
+observeOnce(
+    statsSection,
+    () => {
+        counters.forEach(animateCounter);
     },
-    { threshold: 0.4 }
+    { ratio: 0.3 }
 );
 
-statsObserver.observe(statsSection);
+/* ============================= */
+/* ABOUT — PROGRESS LIST */
+/* ============================= */
 
-
-
-
-
-const aboutSection1 = document.querySelector('.about');
 const progressBox = document.querySelector('.about__progress-box');
 const progressItems = document.querySelectorAll('.about__progress-item');
 
-const runProgressListAnimation = () => {
-    let delay = 0;
+observeOnce(
+    progressBox,
+    () => {
+        aboutSection.classList.add('animate-progress');
 
-    progressItems.forEach((item) => {
-        setTimeout(() => {
-            item.classList.add('show');
-        }, delay);
-
-        delay += 400; // задержка между пунктами
-    });
-};
-
-const progressObserver = new IntersectionObserver(
-    ([entry]) => {
-        if (entry.isIntersecting) {
-            // запускаем общие анимации
-            aboutSection1.classList.add('animate-progress');
-
-            // запускаем построчную анимацию списка
-            setTimeout(runProgressListAnimation, 900);
-
-            progressObserver.disconnect();
-        }
-    },
-    { threshold: 0.35 }
-);
-
-progressObserver.observe(progressBox);
-
-
-
-
-const partnersSection = document.querySelector('.partners');
-const listItems = document.querySelectorAll('.partners__box-item');
-
-if (partnersSection) {
-    const runPartnersAnimation = () => {
         let delay = 0;
-
-        // 1. Title (top -> down)
-        setTimeout(() => {
-            partnersSection.classList.add('show-title');
-        }, delay);
-        delay += 100;
-
-        // 2. Subtitle (bottom -> up)
-        setTimeout(() => {
-            partnersSection.classList.add('show-subtitle');
-        }, delay);
-        delay += 100;
-
-        // 3. Pause ~2s
-        delay += 100;
-
-        // 4.   (bottom -> up)
-        setTimeout(() => {
-            partnersSection.classList.add('show-button');
-        }, delay);
-        delay += 100;
-
-        // 5. Image fade in
-        setTimeout(() => {
-            partnersSection.classList.add('show-image');
-        }, delay);
-        delay += 100;
-
-        // 6. List items (stagger bottom -> up)
-        listItems.forEach((item) => {
-            setTimeout(() => {
-                item.classList.add('show');
-            }, delay);
+        progressItems.forEach(item => {
+            setTimeout(() => item.classList.add('show'), delay);
             delay += 300;
         });
-
-        // 7. Bottom black text (right -> left)
-        setTimeout(() => {
-            partnersSection.classList.add('show-bottom-text');
-        }, delay);
-    };
-
-    const observer = new IntersectionObserver(
-        ([entry]) => {
-            if (entry.isIntersecting) {
-                runPartnersAnimation();
-                observer.disconnect();
-            }
-        },
-        { threshold: 0.35 }
-    );
-
-    observer.observe(partnersSection);
-}
-
-
-
-
-const blogSection = document.querySelector('.blog');
-const blogBigItem = document.querySelector('.blog__item-big');
-const blogSmallItems = document.querySelectorAll('.blog__item-small');
-
-if (blogSection) {
-    const runBlogAnimation = () => {
-        let delay = 0;
-
-        // 1. Title (top -> down)
-        setTimeout(() => {
-            blogSection.classList.add('animate-blog');
-        }, delay);
-        delay += 900;
-
-        // 2. Big blog card
-        setTimeout(() => {
-            blogSection.classList.add('show-big');
-        }, delay);
-        delay += 1000;
-
-        // 3. Small cards (stagger)
-        blogSmallItems.forEach((item) => {
-            setTimeout(() => {
-                item.classList.add('show');
-            }, delay);
-            delay += 350;
-        });
-    };
-
-    const blogObserver = new IntersectionObserver(
-        ([entry]) => {
-            if (entry.isIntersecting) {
-                runBlogAnimation();
-                blogObserver.disconnect();
-            }
-        },
-        { threshold: 0.35 }
-    );
-
-    blogObserver.observe(blogSection);
-}
+    },
+    { ratio: 0.25 }
+);
 
 /* ============================= */
-/* PRODUCTS — FIX */
+/* PRODUCTS */
 /* ============================= */
 
 const productsSection = document.querySelector('.products');
 const productItems = document.querySelectorAll('.product__item');
 
-if (productsSection) {
-    const productsObserver = new IntersectionObserver(
-        ([entry]) => {
-            if (entry.isIntersecting) {
-                productsSection.classList.add('animate-products');
+observeOnce(
+    productsSection,
+    () => {
+        productsSection.classList.add('animate-products');
 
-                // назначаем направления
-                productItems.forEach((item, index) => {
-                    item.classList.add(index % 2 === 0 ? 'from-top' : 'from-bottom');
-                });
+        productItems.forEach((item, index) => {
+            item.classList.add(index % 2 === 0 ? 'from-top' : 'from-bottom');
+        });
 
-                // последовательное появление карточек
-                let delay = 0;
-                productItems.forEach((item) => {
-                    setTimeout(() => {
-                        item.classList.add('show');
-                    }, delay);
-                    delay += 100;
-                });
-
-                productsObserver.disconnect();
-            }
-        },
-        { threshold: 0.35 }
-    );
-
-    productsObserver.observe(productsSection);
-}
-
+        let delay = 0;
+        productItems.forEach(item => {
+            setTimeout(() => item.classList.add('show'), delay);
+            delay += 180;
+        });
+    },
+    { ratio: 0.3 }
+);
 
 /* ============================= */
-/* SLOGAN — FIX */
+/* SLOGAN */
 /* ============================= */
 
 const sloganSection = document.querySelector('.slogan');
 
-if (sloganSection) {
-    const sloganObserver = new IntersectionObserver(
-        ([entry]) => {
-            if (entry.isIntersecting) {
-                sloganSection.classList.add('animate-slogan');
-                sloganObserver.disconnect();
-            }
-        },
-        { threshold: 0.4 }
-    );
+observeOnce(
+    sloganSection,
+    () => {
+        sloganSection.classList.add('animate-slogan');
+    },
+    { ratio: 0.3 }
+);
 
-    sloganObserver.observe(sloganSection);
-}
+/* ============================= */
+/* PARTNERS */
+/* ============================= */
 
+const partnersSection = document.querySelector('.partners');
+const partnerItems = document.querySelectorAll('.partners__box-item');
+
+observeOnce(
+    partnersSection,
+    () => {
+        let delay = 0;
+
+        setTimeout(() => partnersSection.classList.add('show-title'), delay);
+        delay += 200;
+
+        setTimeout(() => partnersSection.classList.add('show-subtitle'), delay);
+        delay += 200;
+
+        setTimeout(() => partnersSection.classList.add('show-button'), delay);
+        delay += 200;
+
+        setTimeout(() => partnersSection.classList.add('show-image'), delay);
+        delay += 200;
+
+        partnerItems.forEach(item => {
+            setTimeout(() => item.classList.add('show'), delay);
+            delay += 280;
+        });
+
+        setTimeout(
+            () => partnersSection.classList.add('show-bottom-text'),
+            delay
+        );
+    },
+    { ratio: 0.25 }
+);
+
+/* ============================= */
+/* BLOG */
+/* ============================= */
+
+const blogSection = document.querySelector('.blog');
+const blogSmallItems = document.querySelectorAll('.blog__item-small');
+
+observeOnce(
+    blogSection,
+    () => {
+        blogSection.classList.add('animate-blog');
+
+        setTimeout(() => blogSection.classList.add('show-big'), 600);
+
+        let delay = 1100;
+        blogSmallItems.forEach(item => {
+            setTimeout(() => item.classList.add('show'), delay);
+            delay += 320;
+        });
+    },
+    { ratio: 0.25 }
+);
