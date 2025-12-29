@@ -1,19 +1,25 @@
 /* ============================= */
-/* GLOBAL OBSERVER HELPER */
+/* DEVICE DETECTION */
+/* ============================= */
+
+const isMobile = window.matchMedia('(max-width: 768px)').matches;
+
+/* ============================= */
+/* GLOBAL OBSERVER */
 /* ============================= */
 
 function observeOnce(element, callback, options = {}) {
     if (!element) return;
 
     const observer = new IntersectionObserver(
-        ([entry]) => {
+        ([entry], obs) => {
             if (entry.intersectionRatio >= (options.ratio ?? 0.25)) {
                 callback();
-                observer.disconnect();
+                obs.disconnect();
             }
         },
         {
-            threshold: options.threshold ?? [0.25],
+            threshold: options.threshold ?? [options.ratio ?? 0.25],
             rootMargin: options.rootMargin ?? '0px'
         }
     );
@@ -22,24 +28,33 @@ function observeOnce(element, callback, options = {}) {
 }
 
 /* ============================= */
-/* ABOUT — HERO */
+/* HELPER — MOBILE STAGGER */
 /* ============================= */
 
-const aboutSection = document.querySelector('.about');
-
-observeOnce(
-    aboutSection,
-    () => {
-        aboutSection.classList.add('animate');
-    },
-    { ratio: 0.25 }
-);
+function mobileStagger(elements, delay = 200) {
+    let time = 0;
+    elements.forEach(el => {
+        el.classList.add('mobile-init');
+        setTimeout(() => el.classList.add('show'), time);
+        time += delay;
+    });
+}
 
 /* ============================= */
-/* ABOUT — STATS COUNTERS */
+/* ABOUT */
 /* ============================= */
 
-const statsSection = document.querySelector('.about__stats');
+const about = document.querySelector('.about');
+
+observeOnce(about, () => {
+    about.classList.add('animate');
+}, { ratio: 0.3 });
+
+/* ============================= */
+/* ABOUT — STATS */
+/* ============================= */
+
+const stats = document.querySelector('.about__stats');
 const counters = document.querySelectorAll('.about__stats dt');
 
 function animateCounter(el) {
@@ -62,49 +77,46 @@ function animateCounter(el) {
     requestAnimationFrame(update);
 }
 
-observeOnce(
-    statsSection,
-    () => {
-        counters.forEach(animateCounter);
-    },
-    { ratio: 0.3 }
-);
+observeOnce(stats, () => {
+    counters.forEach(animateCounter);
+}, { ratio: 0.3 });
 
 /* ============================= */
-/* ABOUT — PROGRESS LIST */
+/* ABOUT — PROGRESS */
 /* ============================= */
 
 const progressBox = document.querySelector('.about__progress-box');
 const progressItems = document.querySelectorAll('.about__progress-item');
 
-observeOnce(
-    progressBox,
-    () => {
-        aboutSection.classList.add('animate-progress');
+observeOnce(progressBox, () => {
+    about.classList.add('animate-progress');
 
+    if (isMobile) {
+        mobileStagger(progressItems, 220);
+    } else {
         let delay = 0;
         progressItems.forEach(item => {
             setTimeout(() => item.classList.add('show'), delay);
             delay += 300;
         });
-    },
-    { ratio: 0.25 }
-);
+    }
+}, { ratio: 0.25 });
 
 /* ============================= */
 /* PRODUCTS */
 /* ============================= */
 
-const productsSection = document.querySelector('.products');
+const products = document.querySelector('.products');
 const productItems = document.querySelectorAll('.product__item');
 
-observeOnce(
-    productsSection,
-    () => {
-        productsSection.classList.add('animate-products');
+observeOnce(products, () => {
+    products.classList.add('animate-products');
 
-        productItems.forEach((item, index) => {
-            item.classList.add(index % 2 === 0 ? 'from-top' : 'from-bottom');
+    if (isMobile) {
+        mobileStagger(productItems, 180);
+    } else {
+        productItems.forEach((item, i) => {
+            item.classList.add(i % 2 === 0 ? 'from-top' : 'from-bottom');
         });
 
         let delay = 0;
@@ -112,80 +124,81 @@ observeOnce(
             setTimeout(() => item.classList.add('show'), delay);
             delay += 180;
         });
-    },
-    { ratio: 0.3 }
-);
+    }
+}, { ratio: 0.3 });
 
 /* ============================= */
 /* SLOGAN */
 /* ============================= */
 
-const sloganSection = document.querySelector('.slogan');
+const slogan = document.querySelector('.slogan');
 
-observeOnce(
-    sloganSection,
-    () => {
-        sloganSection.classList.add('animate-slogan');
-    },
-    { ratio: 0.3 }
-);
+observeOnce(slogan, () => {
+    slogan.classList.add('animate-slogan');
+}, { ratio: 0.3 });
 
 /* ============================= */
 /* PARTNERS */
 /* ============================= */
-
-const partnersSection = document.querySelector('.partners');
+const partners = document.querySelector('.partners');
 const partnerItems = document.querySelectorAll('.partners__box-item');
 
-observeOnce(
-    partnersSection,
-    () => {
-        let delay = 0;
+observeOnce(partners, () => {
 
-        setTimeout(() => partnersSection.classList.add('show-title'), delay);
-        delay += 200;
+    if (isMobile) {
+        // показываем ВСЮ структуру
+        partners.classList.add('mobile-show');
 
-        setTimeout(() => partnersSection.classList.add('show-subtitle'), delay);
-        delay += 200;
+        const staticBlocks = partners.querySelectorAll(
+            '.partners__box-top img, .partners__box-text'
+        );
 
-        setTimeout(() => partnersSection.classList.add('show-button'), delay);
-        delay += 200;
-
-        setTimeout(() => partnersSection.classList.add('show-image'), delay);
-        delay += 200;
-
-        partnerItems.forEach(item => {
-            setTimeout(() => item.classList.add('show'), delay);
-            delay += 280;
+        staticBlocks.forEach(el => {
+            el.style.opacity = '1';
+            el.style.transform = 'none';
         });
 
-        setTimeout(
-            () => partnersSection.classList.add('show-bottom-text'),
-            delay
-        );
-    },
-    { ratio: 0.25 }
-);
+        // список — по очереди
+        mobileStagger(partnerItems, 220);
+        return;
+    }
+
+    // desktop — без изменений
+    let delay = 0;
+    setTimeout(() => partners.classList.add('show-title'), delay); delay += 200;
+    setTimeout(() => partners.classList.add('show-subtitle'), delay); delay += 200;
+    setTimeout(() => partners.classList.add('show-button'), delay); delay += 200;
+    setTimeout(() => partners.classList.add('show-image'), delay); delay += 200;
+
+    partnerItems.forEach(item => {
+        setTimeout(() => item.classList.add('show'), delay);
+        delay += 280;
+    });
+
+    setTimeout(() => partners.classList.add('show-bottom-text'), delay);
+
+}, { ratio: 0.25 });
 
 /* ============================= */
 /* BLOG */
 /* ============================= */
 
-const blogSection = document.querySelector('.blog');
-const blogSmallItems = document.querySelectorAll('.blog__item-small');
+const blog = document.querySelector('.blog');
+const blogSmall = document.querySelectorAll('.blog__item-small');
 
-observeOnce(
-    blogSection,
-    () => {
-        blogSection.classList.add('animate-blog');
+observeOnce(blog, () => {
+    blog.classList.add('animate-blog');
 
-        setTimeout(() => blogSection.classList.add('show-big'), 600);
+    if (isMobile) {
+        mobileStagger(blogSmall, 220);
+        blog.classList.add('mobile-show');
+    } else {
+        setTimeout(() => blog.classList.add('show-big'), 600);
 
         let delay = 1100;
-        blogSmallItems.forEach(item => {
+        blogSmall.forEach(item => {
             setTimeout(() => item.classList.add('show'), delay);
             delay += 320;
         });
-    },
-    { ratio: 0.25 }
-);
+    }
+}, { ratio: 0.25 });
