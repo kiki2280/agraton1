@@ -24,7 +24,6 @@ picture {
 img,
 picture {
   max-width: 100%;
-  display: block;
 }
 
 ul {
@@ -56,3 +55,5 @@ select {
     scroll-behavior: auto !important;
   }
 }
+
+

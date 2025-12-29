@@ -26,30 +26,30 @@
 
                     <ul class="menu__list">
                         <li class="menu__item">
-                            <a href="#" class="menu__link">About company</a>
+                            <a href="#about" class="menu__link">About company</a>
                         </li>
                         <li class="menu__item">
-                            <a href="#" class="menu__link">Products</a>
+                            <a href="#products" class="menu__link">Products</a>
                         </li>
                         <li class="menu__item">
-                            <a href="#" class="menu__link">Partners</a>
+                            <a href="#partners" class="menu__link">Partners</a>
                         </li>
                         <li class="menu__item">
-                            <a href="#" class="menu__link">Blog</a>
+                            <a href="#blog" class="menu__link">Blog</a>
                         </li>
                         <li class="menu__item">
-                            <a href="#" class="menu__link">Contact</a>
+                            <a href="#contact" class="menu__link">Contact</a>
                         </li>
                     </ul>
                 </nav>
-                <a href="#" class="header__contacts">Contact us</a>
+                <a href="#contact" class="header__contacts">Contact us</a>
             </div>
         </div>
     </header> 
 
     <main class="main">
     <!-- ABOUT SECTION -->
-    <section class="about ">
+    <section class="about " id="about">
         <div class="container-big">
             <div class="about__top">
                 <h1 class="about__title">Agroton</h1>
@@ -110,29 +110,33 @@
             </div>
             <dl class="about__stats">
                 <div class="about__stats-item">
-                    <dt>100%</dt>
+                    <dt data-value="100">0%</dt>
                     <dd>quality of production</dd>
                 </div>
+
                 <div class="about__stats-item">
-                    <dt>50+</dt>
+                    <dt data-value="50">0+</dt>
                     <dd>modern agricultural technologies</dd>
                 </div>
+
                 <div class="about__stats-item">
-                    <dt>1.5 mil. tons</dt>
+                    <dt data-value="1.5">0 mil. tons</dt>
                     <dd>products we produce every year.</dd>
                 </div>
+
                 <div class="about__stats-item">
-                    <dt>10+ countries</dt>
+                    <dt data-value="10">0+ countries</dt>
                     <dd>we export products all over the world.</dd>
                 </div>
             </dl>
+
             <p class="about__progress-text">
                 <span>Agroton is the largest diversified vertically</span> integrated agricultural producer 
                 in Eastern Ukraine. Agroton is a regional leader in the cultivation of agricultural crops, livestock farming
             </p>
             <div class="about__progress-box">
                 <img src="./img/about-img.png" alt="" class="about__progress-img">
-                <div class="about__progress-tadalebox">
+                <diz class="about__progress-tadalebox">
                     <p class="about__progress-boxtext">
                         Agroton is <span class="text--color"> 30 years</span> of leadership in the agricultural sector. We cultivate<span class="text--color"> 200,000+ 
                         hectares of land</span>, supply the market with quality products and export 
@@ -164,13 +168,14 @@
                             <dt><span>№2</span> in bakery production in Luhansk</dt>
                             <dd>7,000 tons of products per year.</dd>
                         </div>
-                    </div>
+                    </dl>
+                </diz>
             </div>
         </div>
     </section>
 
     <!-- PRODUCTS SECTION -->
-    <section class="products ">
+    <section class="products " id="products">
         <div class="container-big">
             <div class="products__wrapper">
                 <div class="container">
@@ -224,7 +229,7 @@
                         </div>
                         <a href="#" class="products__link button">
                             See catalog
-                            <svg width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <svg class="button__icon" width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="27" cy="27" r="27" fill="white"/>
                             <path d="M35 22V32M35 22H25M35 22L25 32" stroke="black" stroke-width="1.5"/>
                             </svg>
@@ -243,17 +248,17 @@
         <img class="slogan__img" src="./img/products/slogan.png" alt="">
     </div>
     <!-- partners -->
-    <div class="partners ">
+    <div class="partners " id="partners">
         <div class="container">
             <div class="partners__inner">
                 <div class="partners__info">
-                    <h3 class="partners__info-title">Agroton is a reliable supplier of agricultural products</h3>
+                    <h3 class="partners__info-title">Agroton is  a reliable supplier of agricultural products</h3>
                     <p class="partners__info-text">
                         We cooperate with processors, distributors and retail chains, ensuring stable supplies and high quality standards.
                     </p>
-                    <a href="#" class="button">
+                    <a href="#contact" class=" partners__info-button button">
                         Contact us
-                        <svg width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg class="button__icon" width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="27" cy="27" r="27" fill="white"/>
                         <path d="M35 22V32M35 22H25M35 22L25 32" stroke="black" stroke-width="1.5"/>
                         </svg>
@@ -268,7 +273,7 @@
                         <li class="partners__box-item">
                             <span >Guaranteed</span> traceability and certification
                         </li>
-                        <li class="partners__box-item">
+                        <li class="partners__box-item">  
                             <span >Individual</span> approach to each partner
                         </li>
                     </ul>
@@ -283,7 +288,7 @@
         </div>
     </div>
 </section>
-    <section class="blog ">
+    <section class="blog " id="blog">
         <div class="container-big">
             <div class="blog__wrapper">
                 <div class="container">
@@ -338,7 +343,7 @@
         </div>
     </section>
 </main>
-<footer class="footer">
+<footer class="footer" id="contact">
     <div class="container">
         <div class="footer__top">
             <a href="#" class="footer__logo">
@@ -348,19 +353,19 @@
                 <p class="footer__element-title">Navigation</p>
                 <ul class="footer__list">
                     <li class="footer__item">
-                        <a href="#" class="footer__link">About company</a>
+                        <a href="#about" class="footer__link">About company</a>
                     </li>
                     <li class="footer__item">
-                        <a href="#" class="footer__link">Products</a>
+                        <a href="#products" class="footer__link">Products</a>
                     </li>
                     <li class="footer__item">
-                        <a href="#" class="footer__link">Partners</a>
+                        <a href="#partners" class="footer__link">Partners</a>
                     </li>
                     <li class="footer__item">
-                        <a href="#" class="footer__link">Blog</a>
+                        <a href="#blog" class="footer__link">Blog</a>
                     </li>
                     <li class="footer__item">
-                        <a href="#" class="footer__link">Contact</a>
+                        <a href="#contact" class="footer__link">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -414,5 +419,6 @@
 
 
     <script src="./js/main.js"></script>
+    <script src="./js/animation.js"></script>
 </body>
-</html>    
+</html>   
