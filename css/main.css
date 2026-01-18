@@ -1,0 +1,19 @@
+/* base  */
+
+@import "./base/reset.css";
+@import "./base/base.css";
+
+/* sections */
+
+
+/* blocks */
+@import "./blocks/header.css";
+@import "./blocks/about.css";
+@import "./blocks/text.css";
+@import "./blocks/products.css";
+@import "./blocks/button.css";
+@import "./blocks/slogan.css";
+@import "./blocks/partners.css";
+@import "./blocks/blog.css";
+@import "./blocks/footer.css";
+@import "./blocks/media.css";

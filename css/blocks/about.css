@@ -1,0 +1,228 @@
+
+/* ABOUT SECTION */
+
+.about {
+    margin-bottom: 180px;
+}
+.about__top {
+    text-align: center;
+    color: #FDFDF0;
+    background-image: url('../../img/about-bg.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    text-transform: uppercase;
+    min-height: 748px;
+    border-radius: 30px;
+}
+.about__title {
+    font-family: 'WorkSans-SemiBold', sans-serif;
+    padding-top: 85px;
+    font-weight: 600;
+    font-size: 250px;
+    line-height: 0.9;
+    margin-bottom: 20px;
+
+}
+.about__text {
+    font-family: 'WorkSans-Medium', sans-serif;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 1.2;
+}
+
+.about__achievments {
+    display: flex;
+    justify-content: space-between;
+    margin-top: -55px;
+    margin-bottom: 90px;
+}
+
+.about__achievment {
+    border-radius: 20px;
+    background-color: #F4F4F4;
+    max-width: 580px;
+    padding: 14px 10px;
+    display: flex;
+    gap: 0 25px;
+}
+
+.about__achievment-imgbox {
+    min-width: 214px;
+    position: relative;
+}
+
+.about__achivement-arrow {
+    border: none;
+    padding: 0;
+    background: transparent;
+    position: absolute;
+    top: 5px;
+    right: 0px;
+}
+
+.about__achivement-title {
+    margin-bottom: 20px;
+    font-weight: 500;
+    padding-top: 10px;
+}
+.about__achivement-text {
+    font-family: 'WorkSans-Light', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+}
+
+.about__stats {
+    border-radius: 20px;
+    background-color: #F4F4F4;
+    margin-bottom: 70px;
+    display: flex;
+    padding: 30px 18px;
+    justify-content: space-between;
+    gap: 90px;
+}
+.about__stats-item {
+    text-align: center;
+    width: 280px;
+
+}
+.about__stats-item dt {
+    font-family: 'WorkSans-SemiBold';
+    font-weight: 600;
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+.about__stats-item dd {
+    margin: 0;
+    color: #000000;
+    font-size: 22px;
+    opacity: .7;
+}
+
+.about__progress-text {
+    font-weight: 300;
+    font-size: 40px;
+    line-height: 1.2;
+    font-family: 'WorkSans-Light';
+    margin-bottom: 40px;
+}
+.about__progress-text span {
+    font-weight: 500;
+    font-family: 'WorkSans-Medium';
+}
+.about__progress-box {
+    display: flex;
+    gap: 0 140px;
+}
+.about__progress-img {
+    border-radius: 10px;
+}
+.about__progress-boxtext {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 45px;
+    padding-right: 50px;
+    padding-top: 10px;
+}
+.about__progress-boxtext .text--bold {
+    font-weight: 700;
+}
+.about__progress-tadale {
+    border-top: 1px solid rgba(14, 13, 13, 0.23);
+}
+.about__progress-item {
+    padding: 10px 0;
+        display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom:  1px solid rgba(14, 13, 13, 0.23);
+}
+
+.about__progress-item + .about__progress-item {
+    padding-top: 20px;
+}
+
+.about__progress-item dt {
+    font-size: 18px;
+    font-weight: 500;
+    
+}
+.about__progress-item dt span{
+    color: #F2A531;
+    font-weight: 600;
+    
+}
+.about__progress-item dd {
+    opacity: 0.71;
+}
+
+/* animations */
+
+.about__title {
+    transform: translateY(-120px);
+    opacity: 0;
+}
+
+.about__text {
+    transform: translateY(120px);
+    opacity: 0;
+}
+
+.about__achievment,
+.about__stats,
+.about__progress-text,
+.about__progress-boxtext {
+    transform: translateY(80px);
+    opacity: 0;
+}
+
+.about__progress-img {
+    transform: scale(0.6);
+    opacity: 0;
+}
+
+.about__progress-item {
+    transform: translateX(-60px);
+    opacity: 0;
+}
+/* TOP */
+.animate-top .about__title,
+.animate-top .about__text {
+    transform: translateY(0);
+    opacity: 1;
+    transition: 1.6s ease;
+}
+
+/* ACHIEVEMENTS */
+.animate-achievements .about__achievment {
+    transform: translateY(0);
+    opacity: 1;
+    transition: 2s ease;
+}
+
+/* STATS */
+.animate-stats {
+    transform: translateY(0);
+    opacity: 1;
+    transition: 1.4s ease;
+}
+
+/* PROGRESS */
+.animate-progress-text,
+.animate-progress-boxtext {
+    transform: translateY(0);
+    opacity: 1;
+    transition: 1.5s ease;
+}
+
+.animate-progress-box .about__progress-img {
+    transform: scale(1);
+    opacity: 1;
+    transition: 1.8s ease;
+}
+
+/* PROGRESS ITEMS */
+.animate-item {
+    transform: translateX(0);
+    opacity: 1;
+    transition: 1.2s ease;
+}

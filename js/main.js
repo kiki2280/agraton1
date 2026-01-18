@@ -1,29 +1,15 @@
+import './modal/modal.js';
 
-const menuBtn = document.querySelector('.menu__btn');
-const menuList = document.querySelector('.menu__list');
-const menuLinks = document.querySelectorAll('.menu__link');
+import { initAboutAnimation } from './animation/about.js';
+import { initProductsAnimation } from './animation/products.js';
+import { initSloganAnimation } from './animation/slogan.js';
+import { initPartnersAnimation } from './animation/partners.js';
+import { initBlogAnimation } from './animation/blog.js';
 
-// toggle menu
-menuBtn.addEventListener('click', () => {
-    menuBtn.classList.toggle('active');
-    menuList.classList.toggle('menu--active');
+document.addEventListener('DOMContentLoaded', () => {
+    initAboutAnimation();
+    initProductsAnimation();
+    initSloganAnimation();  
+    initPartnersAnimation();
+    initBlogAnimation();
 });
-
-// close menu on link click
-menuLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        closeMenu();
-    });
-});
-
-// close menu on scroll (ВАЖНО для твоего кейса)
-window.addEventListener('scroll', () => {
-    if (menuList.classList.contains('menu--active')) {
-        closeMenu();
-    }
-});
-
-function closeMenu() {
-    menuBtn.classList.remove('active');
-    menuList.classList.remove('menu--active');
-}

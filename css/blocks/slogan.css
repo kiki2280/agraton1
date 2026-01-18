@@ -1,0 +1,79 @@
+/* SLOGAN SECTION */
+
+.slogan {
+    text-align: center;
+    text-transform: uppercase;
+    padding-top: 115px;
+    position: relative;
+    overflow: hidden;
+    padding: 120px 0;
+}
+.slogan .container {
+    position: relative;
+    z-index: 2;
+}
+
+.slogan__text {
+    font-family: 'WorkSans-Medium';
+    font-weight: 500;
+    color: #000000;
+    font-size: 40px;
+}
+.slogan__title {
+    font-family: 'WorkSans-Medium';
+    font-weight: 600;
+    color: #F2A531;
+    font-size: 300px;
+    line-height: 1;
+    position: relative;
+    z-index: 1; /* НИЖЕ картинки */
+}
+.slogan__img {
+    position: relative;
+    display: block;
+    margin: -130px auto 0;
+    z-index: 3;
+}
+
+
+/* ===================== */
+/* SLOGAN ANIMATION */
+/* ===================== */
+
+/* INITIAL STATES */
+.slogan__text {
+    opacity: 0;
+    transform: translateY(-60px);
+}
+
+.slogan__title {
+    opacity: 0;
+    transform: translateY(80px);
+}
+
+/* ACTIVE STATES */
+.slogan.animate .slogan__text {
+    opacity: 1;
+    transform: translateY(0);
+    transition:
+        opacity 1.2s ease,
+        transform 1.2s ease;
+}
+
+.slogan.animate .slogan__title {
+    opacity: 1;
+    transform: translateY(0);
+    transition:
+        opacity 1.4s ease 0.2s,
+        transform 1.4s ease 0.2s;
+}
+
+@media (max-width: 768px) {
+    .slogan__text {
+        transform: translateY(-30px);
+    }
+
+    .slogan__title {
+        transform: translateY(40px);
+    }
+}
